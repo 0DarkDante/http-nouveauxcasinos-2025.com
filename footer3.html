@@ -22855,52 +22855,9 @@
         Retour aux Casinos
       </a>
 
-      <script data-cfasync="false" src="js/email-decode.min.js"></script>
-      <script>
-        // Simple scroll detection for homepage
-        window.addEventListener("scroll", function () {
-          const scrollBtn = document.getElementById("scrollToTop");
-          if (window.scrollY > 300) {
-            scrollBtn.classList.add("visible");
-          } else {
-            scrollBtn.classList.remove("visible");
-          }
-        });
-      </script>
     </div>
 
-    <script>
-      // Функция для получения параметров из URL
-      function getQueryParams() {
-        const params = {};
-        const queryString = window.location.search.substring(1);
-        const pairs = queryString.split('&');
-        pairs.forEach(pair => {
-          const [key, value] = pair.split('=');
-          params[decodeURIComponent(key)] = decodeURIComponent(value  '');
-        });
-        return params;
-      }
-
-      // Получаем параметры из URL
-      const queryParams = getQueryParams();
-
-      // Находим кнопку по ID
-      const ctaButton = document.getElementById('cta-button');
-
-      // Добавляем параметры из URL к ссылке кнопки
-      if (ctaButton && queryParams.gclid) {
-        const baseUrl = ctaButton.href.split('?')[0]; // Базовая часть ссылки
-        const existingParams = ctaButton.href.split('?')[1]  ''; // Существующие параметры
-        const newParams = new URLSearchParams(existingParams); // Преобразуем в объект URLSearchParams
-
-        // Добавляем gclid и другие параметры
-        newParams.set('gclid', queryParams.gclid);
-
-        // Обновляем ссылку кнопки
-        ctaButton.href = ${baseUrl}?${newParams.toString()};
-      }
-    </script>
+  
 
     <div id="age-verification-overlay">
       <div class="age-verification-box">
