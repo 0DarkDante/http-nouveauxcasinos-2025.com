@@ -5,45 +5,57 @@
  */
 /* === THEME V4 === */
 :root {
-  --primary-900: #112b00;
-  --primary-800: #538e06;
-  --primary-700: #69b40d;
-  --primary-600: #70db18;
-  --primary-500: #8bff26;
-  --primary-400: #6bff4d;
-  --primary-300: #88ff76;
-  --primary-200: #baff9f;
-  --primary-100: #d6ffc7;
-  --primary-50: #ecffec;
-  /* Main background and layout colors */
+  /* Primary – saffron */
+  --primary-900: #4e3200;
+  --primary-800: #805700;
+  --primary-700: #a36d00;
+  --primary-600: #c58200;
+  --primary-500: #FFA000;
+  --primary-400: #ffae33;
+  --primary-300: #ffc966;
+  --primary-200: #ffd999;
+  --primary-100: #ffe9cc;
+  --primary-50: #fff5e6;
+  --color-border: #b88600;;
+
+  /* Neutrals – anthracite */
+  --neutral-900: #2B2B2B;
+  --neutral-800: #1E1E1E;
+  --neutral-700: #141414;
+
+  --body-white: #F5F5F5;
+  --body-0: #FFFFFF;
+
+  /* Assign logic below AFTER all are declared */
   --main-bg: var(--neutral-900);
   --primary: var(--primary-500);
   --header-features: var(--primary-800);
   --stroke: var(--primary-800);
-  /* Button colors - Primary */
+
   --primary-button-default: var(--primary-500);
   --primary-button-hover: var(--primary-400);
   --primary-button-text: var(--primary-900);
-  /* Button colors - Secondary */
+
   --secondary-button-default: var(--body-0);
   --secondary-button-hover: var(--primary-500);
   --secondary-button-text: var(--primary-500);
   --secondary-button-hover-text: var(--primary-900);
   --secondary-button-stroke: var(--primary-800);
-  /* Button colors - Ghost */
+
   --ghost-button-default: var(--body-0);
   --ghost-button-text: var(--primary-100);
-  /* Button colors - Float */
+
   --float-button-text: var(--primary-900);
   --float-button-default: var(--primary-100);
-  /* Card colors */
+
   --card-bg-default: var(--neutral-800);
   --card-bg-premium: var(--neutral-900);
   --logo-bg: var(--neutral-900);
   --card-stroke: var(--primary-800);
-  /* Badge colors */
+
   --badge-bg: var(--primary-900);
   --badge-text: var(--body-white);
+
   --button-bg-top: var(--primary-500);
   --button-bg-bottom: var(--primary-600);
   --button-text-default: var(--body-white);
@@ -53,6 +65,8 @@
   --font-primary: "Lora", sans-serif;
   --font-secondary: "Lato", sans-serif;
 }
+
+
 
 /* 
  * SLOTMACHINE COMPONENT - V4 THEME
@@ -1470,7 +1484,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a:hover {
-  color: #1598f5;
+  color: var(--primary-400);
   text-decoration: none;
 }
 
@@ -1649,8 +1663,13 @@ a:hover {
   color: var(--primary-300);
   position: relative;
 }
+.desktop-nav a {
+  color: var(--body-white);
+  transition: color 0.3s ease;
+}
+
 .desktop-nav a:hover {
-  color: #1598f5;
+  color: var(--primary-400);
 }
 
 /* Mobile navigation controls */
@@ -1796,7 +1815,7 @@ a:hover {
 }
 
 .mobile-nav a:hover {
-  color: var(--primary-500);
+  color: var(--primary-400);
 }
 
 /* === END: layout/header.scss === */
@@ -2083,7 +2102,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: var(--spacing-8);
-  border: 1px solid #1598f5;
+border: 1px solid var(--color-border);
   border-radius: var(--radius-16);
   padding: var(--spacing-8) var(--spacing-12);
   color: var(--body-white);
@@ -2891,7 +2910,7 @@ a:hover {
 }
 
 .footer-nav a:hover {
-  color: #1598f5;
+  color: var(--primary-400);
 }
 
 /* Footer Info Columns */
@@ -3008,7 +3027,7 @@ a:hover {
 }
 
 .footer-company a:hover {
-  color: var(--primary-500);
+  color: var(--primary-400);
 }
 
 /* Copyright */
@@ -3678,7 +3697,7 @@ textarea.input-field {
   border-radius: var(--radius-24);
   margin-bottom: var(--spacing-16);
   position: relative;
-  border: 1px solid #1598f5;
+  border: 1px solid var(--color-border);
 }
 .review-item--v2 .review-avatar {
   flex-shrink: 0;
@@ -6845,8 +6864,7 @@ textarea.input-field {
 
 .privacy-policy a:hover,
 .responsible-gaming a:hover {
-  color: #4da9ff;
-  /* светлый синий для hover */
+  color: var(--primary-400);
 }
 
 .affiliate-info button {
