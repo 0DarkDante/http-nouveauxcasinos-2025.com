@@ -17,6 +17,7 @@
   --primary-100: #ffe9cc;
   --primary-50: #fff5e6;
   --color-border: #b88600;;
+  --color-bg-block: #3d2f00;
 
   /* Neutrals – anthracite */
   --neutral-900: #2B2B2B;
@@ -2551,7 +2552,7 @@ border: 1px solid var(--color-border);
 }
 
 .faq-item {
-  border: 1px solid #1598f5;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-24);
   overflow: hidden;
   background-color: var(--main-bg);
@@ -2566,7 +2567,7 @@ border: 1px solid var(--color-border);
 .faq-toggle:checked + .faq-item {
   border: none;
   position: relative;
-  background-color: #00102b;
+  background-color: var(--color-bg-block);
 }
 
 .faq-question {
@@ -2846,53 +2847,98 @@ border: 1px solid var(--color-border);
 .contact-wrapper {
   padding: var(--spacing-64);
   border-radius: var(--radius-24);
-  border: 1px solid #1598f5;
+  border: 1px solid #b88600;
+  background-color: #3c2f00;
+  /* темний бурштиновий фон */
+  color: #fff9e3;
+  /* теплий світлий текст */
+  transition: background-color 0.3s ease;
 }
 
-/* ==========================================
- CONTACT FORM STYLES
- ========================================== */
+.contact-wrapper:hover {
+  background-color: #503d00;
+  /* легке підсвічування при ховері */
+}
+
+/* ========================================== */
+/* CONTACT FORM STYLES */
+/* ========================================== */
 .contact-form {
   margin-top: var(--spacing-24);
-  /* Two-column form row layout */
 }
+
 .contact-form .form-row {
   display: flex;
   gap: var(--spacing-32);
   margin-bottom: var(--spacing-24);
 }
+
 .contact-form .form-row .input-wrapper {
   flex: 1;
   margin-bottom: 0;
 }
 
-/* Responsive styles for mobile */
+.contact-form input,
+.contact-form textarea {
+  background-color: #503d00;
+  border: 1px solid #b88600;
+  color: #fff9e3;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #f2c94c;
+  box-shadow: 0 0 8px #f2c94c;
+  outline: none;
+}
+
+/* Кнопка */
+.contact-form .button-primary {
+  background-color: #b88600;
+  color: #2a2200;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form .button-primary:hover {
+  background-color: #f2c94c;
+  color: #3c2f00;
+  transform: scale(1.05);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .contact-form .form-row {
     flex-direction: column;
     gap: var(--spacing-16);
   }
+
   .contact-form .button-primary {
     width: 100%;
     max-width: 100%;
   }
 }
-/* === END: layout/contact.scss === */
-/* === START: layout/footer.scss === */
-/* ==========================================
-   FOOTER STYLES
-   ========================================== */
+
+/* === FOOTER STYLES === */
+
 .footer {
-  background-color: var(--neutral-900);
-  color: var(--body-main);
+  background-color: #2a2200;
+  /* темний фон футера */
+  color: #fff9e3;
   padding-top: var(--spacing-64);
   padding-bottom: var(--spacing-40);
-  border-top: 1px solid var(--global-stroke);
+  border-top: 1px solid #b88600;
 }
 
-/* Footer Navigation */
 .footer-nav {
-  border-bottom: 1px solid var(--global-stroke);
+  border-bottom: 1px solid #b88600;
   padding-bottom: var(--spacing-24);
   margin-bottom: var(--spacing-32);
 }
@@ -2905,16 +2951,31 @@ border: 1px solid var(--color-border);
 }
 
 .footer-nav a {
-  color: var(--body-white);
+  color: #fff9e3;
   text-decoration: none;
   transition: color 0.2s ease;
+  position: relative;
+}
+
+.footer-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f2c94c;
+  transition: width 0.3s ease;
 }
 
 .footer-nav a:hover {
-  color: var(--primary-400);
+  color: #f2c94c;
 }
 
-/* Footer Info Columns */
+.footer-nav a:hover::after {
+  width: 100%;
+}
+
 .footer-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2923,7 +2984,7 @@ border: 1px solid var(--color-border);
 }
 
 .footer-info-column h3 {
-  color: var(--body-white);
+  color: #fff9e3;
   font-size: var(--body-large-size);
   font-weight: 600;
 }
@@ -2931,15 +2992,15 @@ border: 1px solid var(--color-border);
 .footer-info-column p {
   font-size: var(--body-medium-size);
   line-height: 1.5;
+  color: #d6c88e;
 }
 
-/* Footer Support */
 .footer-support {
   margin-bottom: var(--spacing-32);
 }
 
 .footer-support h3 {
-  color: var(--body-white);
+  color: #fff9e3;
   font-size: var(--body-large-size);
   font-weight: 600;
 }
@@ -2947,8 +3008,8 @@ border: 1px solid var(--color-border);
 .footer-support p {
   font-size: var(--body-medium-size);
   line-height: 1.5;
+  color: #d6c88e;
 }
-
 /* Footer Disclaimer */
 .footer-disclaimer {
   background-color: var(--neutral-800);
@@ -3120,7 +3181,7 @@ border: 1px solid var(--color-border);
   /* чуть меньше, чтобы не громоздко */
   border-radius: 32px;
   /* более мягкий, «пилл» стиль */
-  background: linear-gradient(135deg, #1598f5 0%, #4da9ff 100%);
+  background: linear-gradient(135deg, #c8f515 0%, #dbff4d 100%);
   /* градиент от твоего синего к светлому */
   color: #fff;
   font-size: 1rem;
@@ -3139,7 +3200,7 @@ border: 1px solid var(--color-border);
   text-decoration: none;
   width: 100%;
   max-width: 320px;
-  box-shadow: 0 4px 15px rgba(21, 152, 245, 0.5);
+  box-shadow: 0 4px 15px rgba(200, 245, 21, 0.5);
   user-select: none;
   /* Чтобы курсор по-человечески мигал */
   outline-offset: 2px;
@@ -3147,14 +3208,14 @@ border: 1px solid var(--color-border);
 }
 
 .button-primary:hover {
-  background: linear-gradient(135deg, #4da9ff 0%, #1598f5 100%);
-  box-shadow: 0 6px 20px rgba(21, 152, 245, 0.8);
+  background: linear-gradient(135deg, #FFC107 0%, #FFA000 100%);
+  box-shadow: 0 6px 20px rgba(255, 143, 0, 0.8);
   transform: translateY(-2px);
 }
 
 .button-primary:active {
-  background: linear-gradient(135deg, #0d75c1 0%, #1a85e0 100%);
-  box-shadow: 0 2px 8px rgba(21, 152, 245, 0.9);
+  background: linear-gradient(135deg, #CC8500 0%, #FF8F00 100%);
+  box-shadow: 0 2px 8px rgba(255, 143, 0, 0.9);
   transform: translateY(0);
 }
 
@@ -3922,43 +3983,80 @@ textarea.input-field {
   position: relative;
   overflow: visible;
   text-decoration: none;
-  color: inherit;
-  transition: border-color 0.3s ease;
-  /* V1 - Horizontal Layout (default) - This will be the base horizontal style */
-  /* V2 - Vertical Layout (default) - This will be the base vertical style */
+  color: #fff9e3;
+  /* теплий світло-жовтий */
+  background-color: #3c2f00;
+  /* насичений темний бурштин */
+  border: 1px solid #b88600;
+  /* золоте обведення */
+  border-radius: var(--radius-24);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  will-change: transform, box-shadow;
+  cursor: pointer;
 }
 
-/* === GENERIC CASINO CARD ELEMENTS (styles that apply if not overridden by specific card type) === */
+.casino-card:hover,
+.casino-card:focus-visible {
+  border-color: #f2c94c;
+  /* яскраво-золотий */
+  box-shadow: 0 0 12px #f2c94c88;
+  transform: translateY(-4px);
+  outline: none;
+}
+
 .casino-card__header {
   display: flex;
   align-items: center;
   width: 100%;
+  gap: var(--spacing-16);
 }
 
 .casino-card__rank {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--neutral-900);
+  background-color: #b88600;
   border-radius: var(--radius-full);
   font-weight: bold;
-  color: var(--body-white);
+  color: #3c2f00;
+  /* темний бурштин для контрасту */
+  width: var(--size-32, 32px);
+  height: var(--size-32, 32px);
+  font-size: 1.1rem;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.casino-card__rank:hover {
+  background-color: #f2c94c;
+  color: #3c2f00;
 }
 
 .casino-card__logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--neutral-900);
+  background-color: #503d00;
+  /* темніший бурштин */
   border-radius: var(--radius-16);
   padding: var(--spacing-8);
+  max-width: 80px;
+  max-height: 80px;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
 }
+
+.casino-card__logo:hover {
+  background-color: #f2c94c;
+}
+
 .casino-card__logo img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   display: block;
   margin: 0 auto;
+  filter: drop-shadow(0 0 1px #b88600);
 }
 
 .casino-card__content {
@@ -3966,20 +4064,27 @@ textarea.input-field {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: var(--spacing-16);
 }
 
 .casino-card__badge {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-4);
-  background-color: #100e44;
-  color: var(--badge-text, var(--primary-100));
+  background-color: #3d440e;
+  /* залишив темний синій, контрастить з золотом */
+  color: #f2c94c;
+  /* яскраво-золотий */
   font-size: var(--label-small-size);
   font-weight: var(--label-small-weight);
   text-transform: uppercase;
   padding: var(--spacing-4) var(--spacing-8);
   z-index: 3;
+  border-radius: var(--radius-12);
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
+
 .casino-card__badge img {
   width: var(--size-16);
   height: var(--size-16);
@@ -3988,30 +4093,28 @@ textarea.input-field {
 
 .casino-card__title {
   font-size: var(--title-medium-size);
-  color: var(--body-white);
+  color: #fff9e3;
   font-weight: var(--title-medium-weight);
   margin: var(--spacing-4) 0;
+  line-height: 1.3;
 }
 
 .casino-card__rating {
   display: flex;
   align-items: center;
   gap: var(--spacing-8);
+  margin-top: var(--spacing-4);
 }
 
 .casino-card__stars {
   display: flex;
 }
-.casino-card__stars svg {
-  width: var(--size-16, 16px);
-  height: var(--size-16, 16px);
-}
-.casino-card__stars svg path {
-  fill: var(--gold, #FFD500);
-}
+
+.casino-card__stars svg path,
 .casino-card__stars img {
-  width: var(--size-16, 16px);
-  height: var(--size-16, 16px);
+  fill: #f2c94c;
+  /* яскраве золото для зірок */
+  filter: drop-shadow(0 0 1px #b88600);
 }
 
 .casino-card__score-container {
@@ -4022,32 +4125,39 @@ textarea.input-field {
 
 .casino-card__score {
   font-weight: bold;
-  color: var(--body-white);
+  color: #fff9e3;
+  font-size: 1rem;
+  user-select: none;
 }
 
 .casino-card__votes {
   font-size: var(--body-small-size);
-  color: var(--body-muted);
+  color: #d6c88e;
+  user-select: none;
 }
 
 .casino-card__cta {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: var(--spacing-16);
+  flex-shrink: 0;
 }
 
 .casino-card__online-users {
   font-size: var(--body-small-size);
-  color: var(--body-muted);
+  color: #d6c88e;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-4);
   margin-top: var(--spacing-8);
+  user-select: none;
 }
+
 .casino-card__online-users .user-count {
-  color: var(--body-main, var(--primary-300));
+  color: #f2c94c;
   font-weight: bold;
 }
 
@@ -4058,15 +4168,20 @@ textarea.input-field {
   gap: var(--spacing-8);
   margin-top: var(--spacing-8);
 }
+
 .casino-card__payment-methods .payment-logo {
   width: auto;
   height: var(--size-24, 24px);
   object-fit: contain;
   filter: grayscale(80%) opacity(0.7);
   transition: filter 0.3s ease;
+  cursor: pointer;
 }
+
 .casino-card__payment-methods .payment-logo:hover {
   filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 /*
@@ -4416,14 +4531,14 @@ textarea.input-field {
   gap: var(--spacing-16);
   overflow: visible !important;
   position: relative;
-  border: 2px solid #b2cde3;
+  border: 2px solid #dae3b2;
   padding: var(--spacing-20);
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 /* Hover: бордер і фон */
 .casino-card--fr-2-vp:hover {
-  border-color: #1598f5;
+  border-color: #c8f515;
   background-color: var(--bg-default);
 }
 
@@ -4470,7 +4585,7 @@ textarea.input-field {
   height: var(--size-32);
   aspect-ratio: 1 / 1;
   border-radius: var(--radius-8);
-  background: #100e44;
+  background: #40440e;
   color: var(--body-main);
   font-weight: 700;
   font-size: var(--body-medium-size);
