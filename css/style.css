@@ -2586,6 +2586,7 @@ border: 1px solid var(--color-border);
   flex: 1;
   padding-right: var(--spacing-16);
   color: var(--body-white);
+  text-align: center;
 }
 
 .faq-icon {
@@ -3109,7 +3110,8 @@ border: 1px solid var(--color-border);
 /* === START: components/buttons.scss === */
 /* Primary button style */
 .button-primary {
-  display: inline-flex;
+  display: block;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
   gap: 8px;
